@@ -30,14 +30,42 @@ class EmployeIncrementSalaryController extends Controller
 //End method
 
 
-    public function SalaryStoreUpdate(){
+    public function SalaryStoreUpdate(Request $request,$id){
 
+          $employee              = EmployeeRegirstration::find($id);
+     $previous_salary            = $employee->salary;
+     $present_salary             = (float)$previous_salary+(float)$request->increment_salary;
+     $employee->salary           = $present_salary;
+     $employee->save();
+
+
+     $salaryData                   = new EmployeSalary();
+     $salaryData->emp_id           = $id;
+     $salaryData->previous_salary  = $previous_salary;
+     $salaryData->increment_salary = $request->increment_salary;
+     $salaryData->present_salary   = $present_salary;
+
+     $salaryData->effected_salary  =date('Y-m-d',strtotime($request->effected_salary));
+
+    $salaryData->save();
+
+     Toastr::success('Employee Salary Successfully Increment :)' ,'Success');
+      return redirect()->route('EmployeeSalary.view');
     }
 
 //End method
 
 
-    public function SalaryDetails(){
+    public function SalaryDetails($id){
+
+    	 $employee = EmployeeRegirstration::find($id);
+        
+         $increment_salary = EmployeSalary::where('emp_id',$employee->id)->get();      
+         
+         // dd($increment_salary)->toArray();
+
+       return view('backends.EmployeeSalary.EmployeeReg_Salary_Details',compact('employee','increment_salary'));
+
 
     }
 

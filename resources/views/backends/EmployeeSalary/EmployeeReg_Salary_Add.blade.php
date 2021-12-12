@@ -13,7 +13,7 @@
 		 <!-- Basic Forms -->
 		  <div class="box">
 			<div class="box-header with-border">
-			  <h4 class="box-title">Add Salary</h4>
+			  <h4 class="box-title">Employee Salary Increment</h4>
 			  
 			</div>
 			<!-- /.box-header -->
