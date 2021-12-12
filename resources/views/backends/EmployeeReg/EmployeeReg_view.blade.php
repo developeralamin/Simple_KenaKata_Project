@@ -52,9 +52,10 @@
 
 
 	<td>
-<a href="{{ route('Employee.Edit',$value->id) }}" class="btn btn-info">Edit</a>
+<a href="{{ route('Employee.Edit',$value->id) }}" class="btn  btn-sm btn-info">Edit</a>
+<a href="{{ route('Employee.delete',$value->id) }}" id="delete" class="btn  btn-sm btn-danger">Delete</a>
 
-<a  target="__blank" href="{{ route('Employee.details',$value->id) }}" class="btn btn-danger" id="">Details</a>
+<a  target="__blank" href="{{ route('Employee.details',$value->id) }}" class="btn btn-sm btn-success" id="">Details</a>
 	</td>
 				 
 			</tr>

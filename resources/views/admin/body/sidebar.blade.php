@@ -30,7 +30,7 @@ $route  = Route::current()->getName();
       <ul class="sidebar-menu" data-widget="tree">  
 		  
 		     <li class="">
-          <a href="">
+          <a href="{{ route('dashboard') }}">
             <i data-feather="pie-chart"></i>
 			<span>Dashboard</span>
           </a>
@@ -115,7 +115,7 @@ $route  = Route::current()->getName();
     <ul class="treeview-menu">
           <li class="{{ ($route == 'Employee.view')?'active':'' }}">
             <a href="{{ route('Employee.view') }}"><i class="ti-more"></i>Employee Registration </a></li>
-    <li class=""><a href=""><i class="ti-more"></i>Employee Salary </a></li>
+    <li class="{{ ($route == 'EmployeeSalary.view')?'active':'' }}"><a href="{{ route('EmployeeSalary.view') }}"><i class="ti-more"></i>Employee Salary </a></li>
     <li class=""><a href=""><i class="ti-more"></i>Employee Leave </a></li>
     <li class=""><a href=""><i class="ti-more"></i>Employee Attendance </a></li>
     <li class=""><a href=""><i class="ti-more"></i>Employee Monthly Salary </a></li>

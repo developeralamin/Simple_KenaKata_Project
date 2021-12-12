@@ -7,6 +7,7 @@ use DB;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\EmployeeRegirstration;
 use Carbon\Carbon;
+use File;
 
 class EmployeeRegistrationController extends Controller
 {
@@ -108,7 +109,19 @@ class EmployeeRegistrationController extends Controller
 	//End method
 
 
-	public function Employeedelete(){
+	public function Employeedelete($id){
+       $delete = EmployeeRegirstration::findOrFail($id);
+       $image_path =public_path('/uploads/employee_image/'.$delete->photo);
+
+       if(file_exists($image_path)){
+             File::delete($image_path);
+      }
+
+      $delete->delete();
+
+      Toastr::success('Employee Registration Successfully Delete :)' ,'Success');
+      return redirect()->back();
+
 
 	}
 

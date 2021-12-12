@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserGroupController;
 use App\Http\Controllers\EmployeeRegistrationController;
+use App\Http\Controllers\EmployeIncrementSalaryController;
 
 
 Route::get('/', function () {
@@ -52,6 +53,21 @@ Route::post('/store',[EmployeeRegistrationController::class,'StoreEmployee'])->n
 Route::get('/edit/{id}',[EmployeeRegistrationController::class,'EmployeeEdit'])->name('Employee.Edit');
 Route::post('/update/{id}',[EmployeeRegistrationController::class,'EmployeeUpdate'])->name('Employee.update');
 Route::get('/delete/{id}',[EmployeeRegistrationController::class,'Employeedelete'])->name('Employee.delete');
-Route::get('/details/{id}',[EmployeeRegistrationController::class,'Employeedelete'])->name('Employee.details');
+Route::get('/details/{id}',[EmployeeRegistrationController::class,'Employeedetails'])->name('Employee.details');
+
+
+
+//employeeeSalary Controller
+
+Route::get('/salary_view',[EmployeIncrementSalaryController::class,'ViewEmployeeSalary'])->name('EmployeeSalary.view');
+
+ Route::get('employee/salary/increment/{id}',[EmployeIncrementSalaryController::class,'SalaryIncrement'])->name('employee.salary.increment');
+
+ Route::post('employee/salary/update/store/{id}',[EmployeIncrementSalaryController::class,'SalaryStoreUpdate'])->name('employee.salary.store.update');
+
+ Route::get('employee/salary/details/{id}',[EmployeIncrementSalaryController::class,'SalaryDetails'])->name('employee.salary.details');
+
+
+
 
 });
