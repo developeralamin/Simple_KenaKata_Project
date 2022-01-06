@@ -15,7 +15,7 @@ $route  = Route::current()->getName();
 		
         <div class="user-profile">
 			<div class="ulogo">
-				 <a href="">
+				 <a href="{{ route('dashboard') }}">
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center">					 	
 						  <img src="{{ asset('backend/images/logo-dark.png') }}" alt="">
@@ -103,7 +103,7 @@ $route  = Route::current()->getName();
     </li> --}}
 
 	
-  <li class="treeview {{ ($prefix == '/employee_registration')?'active' : '' }}">
+  <li class="treeview {{ ($prefix == '/Employee')?'active' : '' }}">
           <a href="#">
             <i data-feather="layers"></i>
             <span>Employee Management</span>
@@ -116,12 +116,19 @@ $route  = Route::current()->getName();
           <li class="{{ ($route == 'Employee.view')?'active':'' }}">
             <a href="{{ route('Employee.view') }}"><i class="ti-more"></i>Employee Registration </a></li>
     <li class="{{ ($route == 'EmployeeSalary.view')?'active':'' }}"><a href="{{ route('EmployeeSalary.view') }}"><i class="ti-more"></i>Employee Salary </a></li>
-    <li class=""><a href=""><i class="ti-more"></i>Employee Leave </a></li>
-    <li class=""><a href=""><i class="ti-more"></i>Employee Attendance </a></li>
+
+    <li class="{{ ($route == 'EmployeeLeave.view')?'active':'' }}"><a href="{{ route('EmployeeLeave.view') }}"><i class="ti-more"></i>Employee Leave </a></li>
+    
+    <li  class="{{ ($route == 'EmployeAttendance.view')?'active':'' }}"><a href="{{ route('EmployeAttendance.view') }}"><i class="ti-more"></i>Employee Attendance </a></li>
+
+    
     <li class=""><a href=""><i class="ti-more"></i>Employee Monthly Salary </a></li>
 
       </ul>
     </li>  
+
+
+
 
     {{-- //End method --}}
 

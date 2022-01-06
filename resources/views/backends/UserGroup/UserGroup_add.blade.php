@@ -33,7 +33,8 @@
 			<div class="form-group">
 				<h5>UserGroup Name <span class="text-danger">*</span></h5>
 			<div class="controls">
-				 <input type="text" name="user_group_name"  class="form-control" 
+				 <input type="text"   name="user_group_name"  value="{{ old("user_group_name") }}" class="form-control
+				  @error('user_group_name') is-invalid @enderror" 
 				 >  
 			</div>
 				  <font style="color: red">

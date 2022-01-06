@@ -95,7 +95,7 @@
 			<option value="Male">Male</option>
 			<option value="FeMale">FeMale</option>
 				 
-			</select>
+	 </select>
 		 </div>
     </div>
 			 

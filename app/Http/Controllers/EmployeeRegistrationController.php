@@ -78,6 +78,8 @@ class EmployeeRegistrationController extends Controller
 
 
 	public function EmployeeUpdate(Request $request ,$id){
+
+    
         $employee                  = EmployeeRegirstration::find($id);
       $employee->name              = $request->name;
       $employee->fname             = $request->fname;

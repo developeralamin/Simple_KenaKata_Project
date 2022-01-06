@@ -5,6 +5,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserGroupController;
 use App\Http\Controllers\EmployeeRegistrationController;
 use App\Http\Controllers\EmployeIncrementSalaryController;
+use App\Http\Controllers\EmployeeLeaveController;
+use App\Http\Controllers\EmployeeAttendanceController;
 
 
 Route::get('/', function () {
@@ -43,9 +45,11 @@ Route::get('/delete/{id}',[UserGroupController::class,'UserGroupdelete'])->name(
 });
 
 
-//UserGroupController All Routes here
+//EmployeeeGroupController All Routes here
+//EmployeeeGroupController All Routes here
 
-Route::prefix('employee_registration')->group(function(){
+Route::prefix('Employee')->group(function(){
+
 
 Route::get('/view',[EmployeeRegistrationController::class,'ViewEmployee'])->name('Employee.view');
 Route::get('/add',[EmployeeRegistrationController::class,'addEmployee'])->name('Employee.add');
@@ -57,7 +61,8 @@ Route::get('/details/{id}',[EmployeeRegistrationController::class,'Employeedetai
 
 
 
-//employeeeSalary Controller
+//EmployeeeSalary Controller
+//EmployeeeSalary Controller
 
 Route::get('/salary_view',[EmployeIncrementSalaryController::class,'ViewEmployeeSalary'])->name('EmployeeSalary.view');
 
@@ -68,6 +73,30 @@ Route::get('/salary_view',[EmployeIncrementSalaryController::class,'ViewEmployee
  Route::get('employee/salary/details/{id}',[EmployeIncrementSalaryController::class,'SalaryDetails'])->name('employee.salary.details');
 
 
+///EmployeeLeave Controller here
+///EmployeeLeave Controller here
+
+Route::get('/EmployeeLeaveview',[EmployeeLeaveController::class,'ViewEmployeeLeave'])->name('EmployeeLeave.view');
+Route::get('/EmployeeLeaveadd',[EmployeeLeaveController::class,'addEmployeeLeave'])->name('EmployeeLeave.add');
+Route::post('/EmployeeLeavestore',[EmployeeLeaveController::class,'StoreEmployeeLeave'])->name('EmployeeLeave.store');
+Route::get('/EmployeeLeaveedit/{id}',[EmployeeLeaveController::class,'EmployeeLeaveEdit'])->name('EmployeeLeave.Edit');
+Route::post('/EmployeeLeaveupdate/{id}',[EmployeeLeaveController::class,'EmployeeLeaveUpdate'])->name('EmployeeLeave.update');
+Route::get('/EmployeeLeavedelete/{id}',[EmployeeLeaveController::class,'EmployeeLeavedelete'])->name('EmployeeLeave.delete');
+Route::get('/EmployeeLeavedetails/{id}',[EmployeeLeaveController::class,'EmployeeLeavedetails'])->name('EmployeeLeave.details');
+
+
+//EmployeeAttendance Controller Here
+//EmployeeAttendance Controller Here
+
+Route::get('/attendanceview',[EmployeeAttendanceController::class,'ViewEmployeeAttendance'])->name('EmployeAttendance.view');
+
+Route::get('/attendanceadd',[EmployeeAttendanceController::class,'addEmployeeAttendance'])->name('EmployeAttendance.add');
+
+Route::post('/attendancestore',[EmployeeAttendanceController::class,'StoreEmployeeAttendance'])->name('EmployeAttendance.store');
+
+Route::get('/attendanceedit/{date}',[EmployeeAttendanceController::class,'EmployeeAttendanceEdit'])->name('EmployeAttendance.Edit');
+
+Route::get('/attendancedetails/{date}',[EmployeeAttendanceController::class,'EmployeeAttendancedetails'])->name('EmployeAttendance.details');
 
 
 });
