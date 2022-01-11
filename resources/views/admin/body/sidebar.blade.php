@@ -20,7 +20,7 @@ $route  = Route::current()->getName();
 					 <div class="d-flex align-items-center justify-content-center">					 	
 						  <img src="{{ asset('backend/images/logo-dark.png') }}" alt="">
 						  <h3><b>কেনাকাটা
-              </b> Dokan</h3>
+              </b> Shop</h3>
 					 </div>
 				</a>
 			</div>
@@ -145,38 +145,33 @@ $route  = Route::current()->getName();
     <li class="{{ ($route == 'UserGroup.add')?'active':'' }}"><a href="{{ route('UserGroup.add') }}"><i class="ti-more"></i>Add UserGroup </a></li>
 
 		  </ul>
-    </li>  
-		  
-  {{--  
-    <li class="treeview {{ ($prefix == '/employees')?'active' : '' }}">
+    </li> 
 
+{{-- End this section --}}
+
+     
+		  
+   
+    <li class="treeview {{ ($prefix == '/product')?'active' : '' }}">
       <a href="#">
         <i data-feather="hard-drive"></i>
-        <span>Employee Management</span>
+        <span>Products</span>
         <span class="pull-right-container">
           <i class="fa fa-angle-right pull-right"></i>
         </span>
       </a>
       <ul class="treeview-menu">
-        <li class="{{ ($route == 'employee.registration.view')?'active':'' }}"><a href="{{ route('employee.registration.view') }}"><i class="ti-more"></i>Employee Registration</a></li>
+        <li class="{{ ($route == 'Product.view')?'active':'' }}"><a href="{{ route('Product.view') }}"><i class="ti-more"></i>View Product</a></li>
 
-        <li class="{{ ($route == 'employee.salary.view')?'active':'' }}">
-          <a href="{{ route('employee.salary.view') }}"><i class="ti-more"></i>Employee Salary</a></li>
+        <li class="{{ ($route == 'Product.add')?'active':'' }}">
+          <a href="{{ route('Product.add') }}"><i class="ti-more"></i>Add Product</a></li>
 
-        <li class="{{ ($route == 'employee.leave.view')?'active':'' }}">
-          <a href="{{ route('employee.leave.view') }}"><i class="ti-more"></i>Employee Leave</a></li>
-
-        <li class="{{ ($route == 'employee.attendance.view')?'active':'' }}">
-          <a href="{{ route('employee.attendance.view') }}"><i class="ti-more"></i>Employee Attendance</a></li>
-
-        <li class="{{ ($route == 'employee.monthly.salary')?'active':'' }}">
-          <a href="{{ route('employee.monthly.salary') }}"><i class="ti-more"></i>Employee Monthly Salary</a></li>
       </ul>
       
     </li>
 		  
 
-        <li class="treeview {{ ($prefix == '/marks')?'active' : '' }}">
+       {{--  <li class="treeview {{ ($prefix == '/marks')?'active' : '' }}">
           <a href="#">
             <i data-feather="package"></i>
             <span>Marks Management</span>
@@ -216,9 +211,9 @@ $route  = Route::current()->getName();
         </li> 
 		  
 
-    <li class="header nav-small-cap">Reports</li>  		  		  
+    <li class="header nav-small-cap">Reports</li>  --}} 		  		  
 		  
-		{{-- <li class="header nav-small-cap">Repo</li>		   --}}
+		{{-- <li class="header nav-small-cap">Repo</li>		  
 		  
  {{--  <li class="treeview {{ ($prefix == '/reports')?'active' : '' }}">
     <a href="#">

@@ -43,11 +43,25 @@ class EmployeeLeaveController extends Controller
                  'end_date'                       =>'required', 
           ]);
 
+    if($request->employee_leave_purpose_id == '0'){
+
+        $leavepurpose                  = new EmployeeLeavePurpose();
+        $leavepurpose->name            = $request->name;
+        $leavepurpose->save();
+
+        $employee_leave_purpose_id     = $leavepurpose->id;
+
+      }else{
+        $employee_leave_purpose_id     = $request->employee_leave_purpose_id;
+      }
+
+
+
     	$EmployeeLeave                              = new EmployeeLeave();
     
   
     	$EmployeeLeave->employee_id                 = $request->employee_id;
-    	$EmployeeLeave->employee_leave_purpose_id   = $request->employee_leave_purpose_id;
+    	$EmployeeLeave->employee_leave_purpose_id   = $employee_leave_purpose_id;
     	$EmployeeLeave->start_date                  = date('Y-m-d',strtotime($request->start_date));
     	$EmployeeLeave->end_date                    = date('Y-m-d',strtotime($request->end_date));
 
@@ -101,18 +115,17 @@ class EmployeeLeaveController extends Controller
 
 //End method here
 
-    public function EmployeeLeavedelete(){
+    public function EmployeeLeavedelete($id){
+
+      $delete = EmployeeLeave::findOrFail($id);
+
+      $delete->delete();
+       Toastr::success('Employee Deleted Successfully :)' ,'warning');
+      return redirect()->back();
 
        }
 
 //End method here
-
-    public function EmployeeLeavedetails(){
-
-       }
-
-//End method here
-
 
 
 }

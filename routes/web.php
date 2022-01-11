@@ -3,10 +3,17 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserGroupController;
+
+//Employee Controller Here
+
 use App\Http\Controllers\EmployeeRegistrationController;
 use App\Http\Controllers\EmployeIncrementSalaryController;
 use App\Http\Controllers\EmployeeLeaveController;
 use App\Http\Controllers\EmployeeAttendanceController;
+
+//Product Controller Here
+use App\Http\Controllers\ProductController;
+
 
 
 Route::get('/', function () {
@@ -30,6 +37,8 @@ Route::post('/update/{id}',[CategoryController::class,'CategoryUpdate'])->name('
 Route::get('/delete/{id}',[CategoryController::class,'Categorydelete'])->name('Category.delete');
 
 });
+
+
 
 //UserGroupController All Routes here
 
@@ -82,7 +91,6 @@ Route::post('/EmployeeLeavestore',[EmployeeLeaveController::class,'StoreEmployee
 Route::get('/EmployeeLeaveedit/{id}',[EmployeeLeaveController::class,'EmployeeLeaveEdit'])->name('EmployeeLeave.Edit');
 Route::post('/EmployeeLeaveupdate/{id}',[EmployeeLeaveController::class,'EmployeeLeaveUpdate'])->name('EmployeeLeave.update');
 Route::get('/EmployeeLeavedelete/{id}',[EmployeeLeaveController::class,'EmployeeLeavedelete'])->name('EmployeeLeave.delete');
-Route::get('/EmployeeLeavedetails/{id}',[EmployeeLeaveController::class,'EmployeeLeavedetails'])->name('EmployeeLeave.details');
 
 
 //EmployeeAttendance Controller Here
@@ -100,3 +108,19 @@ Route::get('/attendancedetails/{date}',[EmployeeAttendanceController::class,'Emp
 
 
 });
+
+
+//Products All Route here
+
+
+Route::prefix('product')->group(function(){
+
+Route::get('/view',[ProductController::class,'ViewProduct'])->name('Product.view');
+Route::get('/add',[ProductController::class,'addProduct'])->name('Product.add');
+Route::post('/store',[ProductController::class,'StoreProduct'])->name('Product.store');
+Route::get('/edit/{id}',[ProductController::class,'ProductEdit'])->name('Product.Edit');
+Route::post('/update/{id}',[ProductController::class,'ProductUpdate'])->name('Product.update');
+Route::get('/delete/{id}',[ProductController::class,'Productdelete'])->name('Product.delete');
+
+});
+

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmployeeLeavePurposesTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreateEmployeeLeavePurposesTable extends Migration
      */
     public function up()
     {
-        Schema::create('employee_leave_purposes', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('category_id');
+            $table->string('title');
+            $table->string('image');
+            $table->string('cost_price');
+            $table->string('sale_price');
+            $table->string('stock');
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ class CreateEmployeeLeavePurposesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employee_leave_purposes');
+        Schema::dropIfExists('products');
     }
 }
