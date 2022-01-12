@@ -178,7 +178,8 @@
   {{-- end this section --}}
 
     <div class="controls">
-        <img id="blah" alt="your image" width="400" height="400" src="{{url('uploads/employee_image/'
+        <img id="blah" alt="your image" width="400" height="400" 
+        src="{{url('uploads/employee_image/'
         .$editData->photo) ?? ''}}" style="width: 300px;height: 300px;border: 1px solid #000000" alt="User Avatar"> 
 
   </div>

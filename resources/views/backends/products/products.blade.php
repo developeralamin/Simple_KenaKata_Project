@@ -33,16 +33,16 @@
 				 
 			</tr>
 		</thead>
+
 {{-- @php
  dump($allData);
 @endphp --}}
+
 		<tbody>
 			@foreach($allData as $key=>$value)
-
-		
-	<tr>
+	 <tr>
 				<td>  {{ $key+1 }}</td>
-				<td>  {{ $value->category->title }}  </td>
+				<td>  {{ $value['category']['title'] }}  </td>
 				<td>  {{ $value->title }}</td>
 				<td> {{ $value->cost_price }}</td>
 				<td> {{ $value->sale_price }}</td>
