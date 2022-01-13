@@ -37,7 +37,7 @@
 				  @error('user_group_name') is-invalid @enderror" 
 				 >  
 			</div>
-				  <font style="color: red">
+ <font style="color: red">
       {{ ($errors->has('user_group_name'))?($errors->first('user_group_name')):'' }}
      </font>
 			</div>
