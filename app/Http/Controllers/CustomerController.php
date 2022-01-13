@@ -33,7 +33,6 @@ class CustomerController extends Controller
 
 //End method
 
-
   public  function StoreCustomer(CustomerRequest $request){
          
   		$data = $request->all();
@@ -44,30 +43,48 @@ class CustomerController extends Controller
 
         return redirect()->route('Customer.view');
        
-
    }
 
 //End method
 
 
-  public  function CustomerEdit(){
+  public  function CustomerEdit($id){
+          
+  		 $usergroups = UserGroup::all();
+		$EditData    = Customer::find($id);
 
-   }
-
-//End method
-
-
-
-
-  public  function CustomerUpdate(){
+  	  return view('backends.customers.customers_edit',compact('EditData','usergroups'));
 
 
    }
 
 //End method
 
+  public  function CustomerUpdate(CustomerRequest $request , $id){
 
-  public  function Customerdelete(){
+  		Customer::findOrFail($id)->update([
+  			 'group_id'   => $request->group_id,
+  			 'name'      => $request->name,
+  			 'email'     => $request->email,
+  			 'phone'     => $request->phone,
+  			 'address'   => $request->address,
+  		]);
+
+
+      Toastr::success('Customer Successfully Update :)' ,'Success');
+      return redirect()->route('Customer.view');    
+   }
+
+//End method
+
+
+  public  function Customerdelete($id){
+      
+         $deleteCustomer = Customer::find($id);
+         $deleteCustomer->delete();
+
+        Toastr::success('Customer Successfully Delete :)' ,'Success');
+        return redirect()->back();    
 
   }
 
