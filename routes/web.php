@@ -14,6 +14,9 @@ use App\Http\Controllers\EmployeeAttendanceController;
 //Product Controller Here
 use App\Http\Controllers\ProductController;
 
+//Customer Controller Here
+use App\Http\Controllers\CustomerController;
+
 
 
 Route::get('/', function () {
@@ -124,3 +127,16 @@ Route::get('/delete/{id}',[ProductController::class,'Productdelete'])->name('Pro
 
 });
 
+//Customer All Routes here
+
+Route::prefix('customer')->group(function(){
+
+Route::get('/view',[CustomerController::class,'ViewCustomer'])->name('Customer.view');
+Route::get('/add',[CustomerController::class,'addCustomer'])->name('Customer.add');
+Route::post('/store',[CustomerController::class,'StoreCustomer'])->name('Customer.store');
+Route::get('/edit/{id}',[CustomerController::class,'CustomerEdit'])->name('Customer.Edit');
+Route::post('/update/{id}',[CustomerController::class,'CustomerUpdate'])->name('Customer.update');
+Route::get('/delete/{id}',[CustomerController::class,'Customerdelete'])->name('Customer.delete');
+
+
+});

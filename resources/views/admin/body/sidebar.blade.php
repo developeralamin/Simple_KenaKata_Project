@@ -171,25 +171,26 @@ $route  = Route::current()->getName();
     </li>
 		  
 
-       {{--  <li class="treeview {{ ($prefix == '/marks')?'active' : '' }}">
+    <li class="treeview  {{ ($prefix == '/customer')?'active' : '' }}"> 
           <a href="#">
             <i data-feather="package"></i>
-            <span>Marks Management</span>
+            <span>All Customer</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
       <ul class="treeview-menu">
-          <li class="{{ ($route == 'marks.entry')?'active':'' }}"><a href="{{ route('marks.entry') }}"><i class="ti-more"></i>Marks Entry</a></li>
+          <li class="{{ ($route =='Customer.view')?'active':'' }}"><a href="{{ route('Customer.view') }}"><i class="ti-more"></i> View Customer</a></li>
 
-         <li class="{{ ($route == 'marks.entry.edit')?'active':'' }}"><a href="{{ route('marks.entry.edit') }}"><i class="ti-more"></i>Marks Edit</a></li>
+         <li class="{{ ($route =='Customer.add')?'active':'' }}"><a href="{{ route('Customer.add') }}"><i class="ti-more"></i>Add Customer</a></li>
 
-         <li class="{{ ($route == 'marks.grade')?'active':'' }}"><a href="{{ route('marks.grade') }}"><i class="ti-more"></i>Marks Grade</a></li>
-            
+        
         </ul>
 
         </li>
-		  
+
+
+		       {{--
 		<li class="treeview {{ ($prefix == '/accounts')?'active' : '' }}">
           <a href="#">
             <i data-feather="edit-2"></i>

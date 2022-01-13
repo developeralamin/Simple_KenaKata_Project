@@ -7,6 +7,7 @@ use DB;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\UserGroup;
 use Carbon\Carbon;
+use App\Http\Requests\StorePostRequest;
 
 class UserGroupController extends Controller
 {
@@ -29,11 +30,11 @@ class UserGroupController extends Controller
 //End method
 
 
-	public function StoreUserGroup(Request $request ){
+	public function StoreUserGroup(StorePostRequest $request ){
 
-         $validata = $request->validate([
-              'user_group_name' =>'required'
-        ]);
+        //  $validata = $request->validate([
+        //       'user_group_name' =>'required'
+        // ]);
 
         DB::table('user_groups')->insert([
         	  'user_group_name'   => $request->user_group_name,

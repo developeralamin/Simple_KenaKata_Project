@@ -80,9 +80,9 @@ class EmployeeLeaveController extends Controller
 
     public function EmployeeLeaveEdit($id){
 
-         $allRegis = DB::table('employee_regirstrations')->get();
+         $allRegis      = DB::table('employee_regirstrations')->get();
          $leave_purpose = DB::table('employee_leave_purposes')->get();
-         $edit = DB::table('employee_leaves')->find($id);
+         $edit          = DB::table('employee_leaves')->find($id);
          // dd($EditData)->toArray();
          // die();
       return view('backends.EmployeeLeave.EmployeeLeave_Edit',compact('leave_purpose','allRegis','edit'));
