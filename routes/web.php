@@ -140,3 +140,5 @@ Route::get('/delete/{id}',[CustomerController::class,'Customerdelete'])->name('C
 
 
 });
+
+

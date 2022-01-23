@@ -17,7 +17,10 @@ class CustomerController extends Controller
 
  public  function ViewCustomer(){
     
-       // $allDatas = DB::table('customers')->Simplepaginate(7);
+       // $allDatas = DB::table('customers')
+       // ->join('user_groups','customers.group_id','=','user_groups.id')
+       // ->Simplepaginate(4);
+       // dd($allDatas);
        $allDatas  = Customer::all();
        return view('backends.customers.customers_view',compact('allDatas'));
    }
@@ -31,7 +34,9 @@ class CustomerController extends Controller
 
    }
 
+
 //End method
+
 
   public  function StoreCustomer(CustomerRequest $request){
          
@@ -44,6 +49,7 @@ class CustomerController extends Controller
         return redirect()->route('Customer.view');
        
    }
+
 
 //End method
 
@@ -75,7 +81,10 @@ class CustomerController extends Controller
       return redirect()->route('Customer.view');    
    }
 
+
+
 //End method
+
 
 
   public  function Customerdelete($id){
